@@ -1,10 +1,16 @@
 import React from 'react';
+import {Provider} from 'react-redux';
+
+import store from "./redux/store";
 import Header from "./components/Header/Header";
 import "./styles/styles.sass";
 
+
 function App() {
 	return (
-		<Header/>
+		<Provider store={store}>
+			<Header/>
+		</Provider>
 	);
 }
 
