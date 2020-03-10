@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 
-const SET_THEME = '/header/SET_THEME';
+const SWITCH_THEME = '/header/SWITCH_THEME';
 
 export enum ThemesList {
 	dark,
@@ -16,10 +16,13 @@ export const initialState: InitialStateType = {
 
 type ActionsType = SetThemeType;
 
-const appReducer = (state = initialState, action: ActionsType) => {
-	switch(action.type) {
-		case SET_THEME:
-			return {...state, darkMode: action.theme};
+const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
+	switch (action.type) {
+		case SWITCH_THEME:
+			return {
+				...state,
+				theme: action.theme || state.theme === ThemesList.light ? ThemesList.dark : ThemesList.light
+			};
 
 		default:
 			return state;
@@ -27,15 +30,17 @@ const appReducer = (state = initialState, action: ActionsType) => {
 };
 
 export type SetThemeType = {
-	type: typeof SET_THEME
-	theme: ThemesList
+	type: typeof SWITCH_THEME
+	theme?: ThemesList
 }
-export const setTheme = (theme: ThemesList): SetThemeType => ({type: SET_THEME, theme});
+export const setTheme = (theme?: ThemesList): SetThemeType => {
+	return {type: SWITCH_THEME, theme}
+};
 
 export const setThemeThunkCreator = () => (dispatch: Dispatch<ActionsType>) => {
 	const a = 1;
 
-	if(a === 1) {
+	if (a === 1) {
 		dispatch(setTheme(ThemesList.dark))
 	} else {
 		dispatch(setTheme(ThemesList.light))

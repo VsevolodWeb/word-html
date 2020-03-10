@@ -8,9 +8,8 @@ import {PropsType} from "./HeaderContainer";
 
 const Header = (props: PropsType) => {
 
-
 	const switchModeOnChange = () => {
-		//setSwitchMode(!switchMode);
+		props.setTheme();
 	};
 
 	return (

@@ -2,14 +2,17 @@ import React from 'react';
 
 import Header from "./Header";
 import {connect} from "react-redux";
-import {setThemeThunkCreator, SetThemeType, ThemesList} from "../../redux/app-reducer";
+import {setTheme, ThemesList} from "../../redux/app-reducer";
 import {AppStateType} from "../../redux/store";
 
-export type PropsType = {
+type MapStateToPropsType = {
 	theme: ThemesList
-	setTheme: (theme: ThemesList) => SetThemeType
 }
-
+type MapDispatchToPropsType = {
+	setTheme: typeof setTheme
+}
+type OwnType = {}
+export type PropsType = MapStateToPropsType & MapDispatchToPropsType & OwnType;
 
 class HeaderContainer extends React.Component<PropsType> {
 	render() {
@@ -18,12 +21,11 @@ class HeaderContainer extends React.Component<PropsType> {
 }
 
 
-const mapStateToProps = (state: AppStateType) => ({
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
 	theme: state.app.theme
 });
 
-const mapDispatchToProps = () => ({
-	setTheme: setThemeThunkCreator
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)
+export default connect<MapStateToPropsType, MapDispatchToPropsType, OwnType, AppStateType>(mapStateToProps, {
+	setTheme: setTheme
+})(HeaderContainer)
