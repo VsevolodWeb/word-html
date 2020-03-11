@@ -1,16 +1,14 @@
 import React from 'react';
-import {Provider} from 'react-redux';
-
-import store from "./redux/store";
 import "./styles/styles.sass";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import cn from "classnames";
 import {ThemesList} from "./redux/app-reducer";
+import {MapStateToPropsType} from "./AppContainer";
+import s from "./App.module.sass"
 
 
-function App() {
+function App(props: MapStateToPropsType) {
 	return (
-		<div className={cn("wrapper", `wrapper_theme-${ThemesList[store.getState().app.theme]}`)}>
+		<div data-theme={ThemesList[props.theme]} className={s.wrapper}>
 			<HeaderContainer/>
 		</div>
 	);
