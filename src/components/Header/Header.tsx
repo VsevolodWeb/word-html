@@ -23,16 +23,23 @@ const Header = (props: PropsType) => {
 						<path
 							className="logo__icon"
 							d="M141.849 30.022l-1.822 12.76c-.15 1.047-1.436 1.482-2.188.73l-2.655-2.655A21.77 21.77 0 01123.908 44C111.923 44 102.3 34.62 102 22.644a1.29 1.29 0 011.107-1.31l5.151-.736a1.291 1.291 0 011.472 1.294c-.107 7.904 6.277 14.374 14.178 14.374 1.914 0 3.804-.39 5.552-1.133l-2.559-2.56c-.748-.747-.324-2.037.728-2.187l12.761-1.823a1.29 1.29 0 011.459 1.459zM144.893 22.566l-5.148.735c-.665.085-1.471-.485-1.471-1.387 0-7.819-6.361-14.18-14.18-14.18-1.903 0-3.785.386-5.526 1.122l2.477 2.477c.747.748.323 2.038-.729 2.188l-12.761 1.824a1.292 1.292 0 01-1.459-1.459l1.823-12.76c.15-1.048 1.435-1.48 2.188-.73l2.719 2.718A21.822 21.822 0 01124.094 0c11.928 0 21.549 9.334 21.905 21.25a1.291 1.291 0 01-1.106 1.316z"
-							fill="#001931"/>
+							fill="#001931"/>🌙🌙🌙🌙🌙
 					</svg>
 					<div className={s.header__info}>
 						<div>
-							<Switch onChange={switchModeOnChange} checked={props.theme === ThemesList.dark}/>
+							<Switch
+								onChange={switchModeOnChange}
+								checked={props.theme === ThemesList.dark}
+								width={60}
+								onColor="#379683" offColor="#484848"
+								checkedIcon={<span className={s.header__switchIcon} role="img" aria-label="moon">🌙</span>} //where emoji
+								uncheckedIcon={<span className={s.header__switchIcon} role="img" aria-label="sun">🌕</span>}
+								/>
 						</div>
 						<div className={s.header__social}>
-							<a href="!#">FB</a>
-							<a href="!#">TW</a>
-							<a href="!#">link</a>
+							<a href="#">FB</a>
+							<a href="#">TW</a>
+							<a href="#">link</a>
 						</div>
 					</div>
 				</div>
