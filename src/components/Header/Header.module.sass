@@ -1,10 +1,12 @@
+@import "src/styles/abstracts/mixins"
+
 .header
-	padding:
-		top: 20px
-		bottom: 20px
+	padding-top: 40px
+	padding-bottom: 40px
 
 	&__inner
-		display: flex
+		@include respond-above(md)
+			display: flex
 
 	&__info
 		display: flex
@@ -12,14 +14,23 @@
 		margin-left: auto
 
 	&__social
-		display: flex
+		display: grid
+		grid-gap: 10px
+		grid-auto-flow: column
 		align-items: center
 		margin-left: 100px
 		line-height: 1
+		position: relative
 
 	&__socialTitle
-		font-weight: 700
-		margin-right: 20px
+		$font-size: 12px
+		font:
+			size: $font-size
+			weight: 700
+		white-space: nowrap
+		position: absolute
+		left: 0
+		top: -$font-size - 5px
 
 	&__switchIcon
 		margin-left: 5px

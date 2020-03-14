@@ -1,4 +1,4 @@
-import {Dispatch} from "redux";
+//import {Dispatch} from "redux";
 
 const SWITCH_THEME = '/header/SWITCH_THEME';
 
@@ -8,10 +8,12 @@ export enum ThemesList {
 }
 
 type InitialStateType = {
+	url: string
 	theme: ThemesList
 }
 export const initialState: InitialStateType = {
-	theme: ThemesList.light
+	url: "https://word-html.com",
+	theme: ThemesList.dark
 };
 
 type ActionsType = SetThemeType;
@@ -37,7 +39,7 @@ export const setTheme = (theme?: ThemesList): SetThemeType => {
 	return {type: SWITCH_THEME, theme}
 };
 
-export const setThemeThunkCreator = () => (dispatch: Dispatch<ActionsType>) => {
+/*export const setThemeThunkCreator = () => (dispatch: Dispatch<ActionsType>) => {
 	const a = 1;
 
 	if (a === 1) {
@@ -45,6 +47,6 @@ export const setThemeThunkCreator = () => (dispatch: Dispatch<ActionsType>) => {
 	} else {
 		dispatch(setTheme(ThemesList.light))
 	}
-};
+};*/
 
 export default appReducer;

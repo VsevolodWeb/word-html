@@ -3,15 +3,18 @@
 .wrapper
 	background-color: var(--body-background-color)
 	height: 100%
+	color: var(--text-color)
 
 	&[data-theme="light"]
 		--body-background-color: #{$color-light}
 		--logo-text-color: #{$color-default-dark}
 		--logo-icon-color: #{$color-dark}
 		--switch-fill-color: #{$color-dark}
+		--text-color: #{$color-dark}
 
 	&[data-theme="dark"]
 		--body-background-color:  #{$color-dark}
 		--logo-text-color: #{$color-light}
 		--logo-icon-color: #{$color-default-dark}
 		--switch-fill-color: #{$color-default-dark}
+		--text-color: #{$color-light}

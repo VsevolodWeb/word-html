@@ -6,6 +6,7 @@ import {setTheme, ThemesList} from "../../redux/app-reducer";
 import {AppStateType} from "../../redux/store";
 
 type MapStateToPropsType = {
+	url: string
 	theme: ThemesList
 }
 type MapDispatchToPropsType = {
@@ -16,12 +17,13 @@ export type PropsType = MapStateToPropsType & MapDispatchToPropsType & OwnType;
 
 class HeaderContainer extends React.Component<PropsType> {
 	render() {
-		return <Header theme={this.props.theme} setTheme={this.props.setTheme}/>
+		return <Header url={this.props.url} theme={this.props.theme} setTheme={this.props.setTheme}/>
 	}
 }
 
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
+	url: state.app.url,
 	theme: state.app.theme
 });
 

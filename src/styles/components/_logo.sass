@@ -2,6 +2,12 @@
 	width: 250px
 	height: 45px
 
+	@include respond-below(md)
+		display: block
+		margin:
+			left: auto
+			right: auto
+
 	&__text
 		fill: var(--logo-text-color)
 

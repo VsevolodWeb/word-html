@@ -2,41 +2,27 @@ import React from 'react';
 import s from "./Header.module.sass";
 import Switch from "react-switch";
 import {
-	EmailShareButton, FacebookIcon,
-	FacebookShareButton,
-	InstapaperShareButton,
-	LineShareButton,
-	LinkedinShareButton,
-	LivejournalShareButton,
-	MailruShareButton,
-	OKShareButton,
-	PinterestShareButton,
-	PocketShareButton,
-	RedditShareButton,
-	TelegramShareButton,
-	TumblrShareButton,
-	TwitterShareButton,
-	ViberShareButton,
-	VKShareButton,
-	WhatsappShareButton,
-	WorkplaceShareButton,
-} from "react-share";
-import {
-	FacebookShareCount,
-	OKShareCount,
-	PinterestShareCount,
-	RedditShareCount,
-	TumblrShareCount,
-	VKShareCount
+	EmailShareButton, EmailIcon,
+	FacebookShareButton, FacebookIcon,
+	LinkedinShareButton, LinkedinIcon,
+	RedditShareButton, RedditIcon,
+	TelegramShareButton, TelegramIcon,
+	TwitterShareButton, TwitterIcon,
+	ViberShareButton, ViberIcon,
+	WhatsappShareButton, WhatsappIcon,
+	VKShareButton, VKIcon,
 } from "react-share";
 import {ThemesList} from "../../redux/app-reducer";
 import {PropsType} from "./HeaderContainer";
 
 
 const Header = (props: PropsType) => {
+	const {url, theme, setTheme} = props;
+	const socialIconSize = 32;
+	const socialIconRound = true;
 
 	const switchModeOnChange = () => {
-		props.setTheme();
+		setTheme();
 	};
 
 	return (
@@ -58,7 +44,7 @@ const Header = (props: PropsType) => {
 						<div>
 							<Switch
 								onChange={switchModeOnChange}
-								checked={props.theme === ThemesList.dark}
+								checked={theme === ThemesList.dark}
 								width={60}
 								onColor="#379683" offColor="#484848"
 								checkedIcon={<span className={s.header__switchIcon} role="img"
@@ -68,13 +54,18 @@ const Header = (props: PropsType) => {
 							/>
 						</div>
 						<div className={s.header__social}>
-							<div className={s.header__socialTitle}>
-								Share!
-							</div>
-							<FacebookShareButton url={"/"}>
-								<FacebookIcon size={32}/>
-							</FacebookShareButton>
-							<FacebookShareCount url={"/"}/>
+							<span className={s.header__socialTitle}>
+								Share on social networks
+							</span>
+							<EmailShareButton url={url}><EmailIcon size={socialIconSize} round={socialIconRound}/></EmailShareButton>
+							<FacebookShareButton url={url}><FacebookIcon size={socialIconSize} round={socialIconRound}/></FacebookShareButton>
+							<LinkedinShareButton url={url}><LinkedinIcon size={socialIconSize} round={socialIconRound}/></LinkedinShareButton>
+							<RedditShareButton url={url}><RedditIcon size={socialIconSize} round={socialIconRound}/></RedditShareButton>
+							<TelegramShareButton url={url}><TelegramIcon size={socialIconSize} round={socialIconRound}/></TelegramShareButton>
+							<TwitterShareButton url={url}><TwitterIcon size={socialIconSize} round={socialIconRound}/></TwitterShareButton>
+							<ViberShareButton url={url}><ViberIcon size={socialIconSize} round={socialIconRound}/></ViberShareButton>
+							<WhatsappShareButton url={url}><WhatsappIcon size={socialIconSize} round={socialIconRound}/></WhatsappShareButton>
+							<VKShareButton url={url}><VKIcon size={socialIconSize} round={socialIconRound}/></VKShareButton>
 						</div>
 					</div>
 				</div>
