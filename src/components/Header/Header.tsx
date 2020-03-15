@@ -1,5 +1,4 @@
 import React from 'react';
-import s from "./Header.module.sass";
 import Switch from "react-switch";
 import {
 	EmailShareButton, EmailIcon,
@@ -14,6 +13,7 @@ import {
 } from "react-share";
 import {ThemesList} from "../../redux/app-reducer";
 import {PropsType} from "./HeaderContainer";
+import s from "./Header.module.sass";
 
 
 const Header = (props: PropsType) => {
@@ -41,7 +41,7 @@ const Header = (props: PropsType) => {
 						🌙🌙🌙🌙🌙
 					</svg>
 					<div className={s.header__info}>
-						<div>
+						<div className={s.header__switch}>
 							<Switch
 								onChange={switchModeOnChange}
 								checked={theme === ThemesList.dark}

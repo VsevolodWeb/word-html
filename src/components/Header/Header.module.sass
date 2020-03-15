@@ -1,5 +1,8 @@
 @import "src/styles/abstracts/mixins"
 
+$mobile-gap: 30px
+$social-title-font-size: 12px
+
 .header
 	padding-top: 40px
 	padding-bottom: 40px
@@ -9,21 +12,31 @@
 			display: flex
 
 	&__info
-		display: flex
-		align-items: center
-		margin-left: auto
+		@include respond-above(md)
+			display: flex
+			align-items: center
+			margin-left: auto
+
+		@include respond-below(md)
+			margin-top: $mobile-gap
 
 	&__social
 		display: grid
 		grid-gap: 10px
-		grid-auto-flow: column
 		align-items: center
-		margin-left: 100px
 		line-height: 1
 		position: relative
 
+		@include respond-above(md)
+			grid-auto-flow: column
+			margin-left: 100px
+
+		@include respond-below(md)
+			grid-template-columns: repeat(auto-fit, minmax(32px, 1fr))
+			margin-top: $mobile-gap + $social-title-font-size
+
 	&__socialTitle
-		$font-size: 12px
+		$font-size: $social-title-font-size
 		font:
 			size: $font-size
 			weight: 700
@@ -31,6 +44,15 @@
 		position: absolute
 		left: 0
 		top: -$font-size - 5px
+
+		@include respond-below(md)
+			width: 100%
+			text-align: center
+
+	@include respond-below(md)
+		&__switch
+			display: flex
+			justify-content: center
 
 	&__switchIcon
 		margin-left: 5px
