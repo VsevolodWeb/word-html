@@ -3,14 +3,10 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.3.2",
-		"@testing-library/user-event": "^7.1.2",
-		"@types/classnames": "^2.2.10",
-		"@types/react-redux": "^7.1.7",
-		"@types/react-share": "^3.0.3",
 		"classnames": "^2.2.6",
 		"draft-js": "^0.11.4",
+		"draftjs-to-html": "^0.9.1",
+		"html-to-draftjs": "^1.5.0",
 		"node-sass": "^4.13.1",
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
@@ -45,9 +41,19 @@
 		]
 	},
 	"devDependencies": {
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"@types/classnames": "^2.2.10",
+		"@types/draft-js": "^0.10.38",
+		"@types/draftjs-to-html": "^0.8.0",
+		"@types/html-to-draftjs": "^1.4.0",
 		"@types/jest": "^24.0.0",
 		"@types/node": "^12.0.0",
 		"@types/react": "^16.9.23",
-		"@types/react-dom": "^16.9.0"
+		"@types/react-dom": "^16.9.0",
+		"@types/react-draft-wysiwyg": "^1.13.0",
+		"@types/react-redux": "^7.1.7",
+		"@types/react-share": "^3.0.3"
 	}
 }
