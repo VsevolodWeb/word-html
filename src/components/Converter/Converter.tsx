@@ -12,14 +12,16 @@ type PropsType = {
 const Converter: React.FC<PropsType> = props => {
 	return (
 		<div className="container">
-			<div className={s.converterWrapper}>
+			<div className={s.editor}>
 				<Editor
 					editorState={props.editorState}
-					wrapperClassName={s.converter}
+					wrapperClassName={s.wordEditor}
 					onEditorStateChange={props.onEditorStateChange}
-					toolbarStyle={{d: 1}}
+					toolbarClassName={s.wordEditor__toolbar}
+					editorClassName={s.wordEditor__area}
 				/>
 				<textarea
+					className={s.htmlEditor}
 					disabled
 					value={props.result}
 				/>

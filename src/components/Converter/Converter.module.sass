@@ -1,14 +1,59 @@
+@import "../../../src/styles/abstracts/vars"
+
 \:global
 	.public-DraftStyleDefault-block
 		margin:
 			top: 0
 			bottom: 0
 
-.converterWrapper
+	.rdw-dropdown-wrapper
+		background-color: $color-light
+
+		&[aria-expanded="true"]
+			opacity: 1
+
+	.rdw-option-wrapper, .rdw-dropdown-wrapper
+		height: 25px
+		border-width: 0
+		opacity: .9
+		box-shadow: none
+
+		&:hover
+			opacity: 1
+			cursor: pointer
+
+	.rdw-option-active
+		background-color: $color-default-dark
+		box-shadow: none !important
+
+.editor
 	display: grid
 	grid-template-columns: 1fr 1fr
+	grid-gap: 50px
 	height: 500px
+	margin-top: 30px
 
-.converter
+.wordEditor
 	display: flex
 	flex-direction: column
+
+.wordEditor__toolbar
+	background-color: var(--converter-toolbar-background-color)
+	border-color: transparent
+	border-radius: 5px 5px 0 0
+	margin-bottom: 0
+	color: $color-dark
+
+.wordEditor__area
+	max-height: 400px
+	border-radius: 0 0 5px 5px
+
+.htmlEditor, .wordEditor__area
+
+	background-color: var(--converter-area-background-color)
+	padding: 15px
+
+.htmlEditor
+	border-radius: 5px
+	border-width: 0
+	color: var(--text-color)
