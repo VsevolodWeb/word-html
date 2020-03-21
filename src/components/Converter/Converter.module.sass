@@ -26,6 +26,10 @@
 		background-color: $color-default-dark
 		box-shadow: none !important
 
+	.rdw-link-modal
+		box-shadow: none
+		box-sizing: content-box
+
 .editor
 	display: grid
 	grid-template-columns: 1fr 1fr
@@ -47,9 +51,12 @@
 .wordEditor__area
 	max-height: 400px
 	border-radius: 0 0 5px 5px
+	font-size: 15px
+
+	pre
+		color: var(--text-color-alternate)
 
 .htmlEditor, .wordEditor__area
-
 	background-color: var(--converter-area-background-color)
 	padding: 15px
 

@@ -15,15 +15,22 @@ const Converter: React.FC<PropsType> = props => {
 			<div className={s.editor}>
 				<Editor
 					editorState={props.editorState}
+					toolbar={{
+						inline: {
+							options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript']
+						},
+						options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'colorPicker', 'link', 'image', 'remove', 'history']
+					}}
 					wrapperClassName={s.wordEditor}
 					onEditorStateChange={props.onEditorStateChange}
 					toolbarClassName={s.wordEditor__toolbar}
 					editorClassName={s.wordEditor__area}
+					placeholder="Copy from any text editor here"
 				/>
 				<textarea
 					className={s.htmlEditor}
-					disabled
 					value={props.result}
+					disabled
 				/>
 			</div>
 		</div>
