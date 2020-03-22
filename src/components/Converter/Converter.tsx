@@ -32,6 +32,10 @@ const Converter: React.FC<PropsType> = props => {
 					value={props.result}
 					disabled
 				/>
+				<div>&nbsp;</div>
+				<div>
+					<button className="button button_default">Copy HTML</button>
+				</div>
 			</div>
 		</div>
 	);
