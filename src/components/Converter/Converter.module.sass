@@ -2,12 +2,6 @@
 @import "../../../src/styles/abstracts/mixins"
 
 \:global
-	.public-DraftStyleDefault-block
-		margin:
-			top: 0
-			bottom: 0
-		height: 400px
-
 	.rdw-dropdown-wrapper
 		background-color: $color-light
 
@@ -33,9 +27,11 @@
 		box-sizing: content-box
 
 
+$converterGridGap: 50px
+
 .editor
 	display: grid
-	grid-gap: 50px
+	grid-gap: $converterGridGap
 
 	@include respond-above(lg)
 		grid-template-columns: 1fr 1fr
@@ -48,6 +44,19 @@
 .wordEditor
 	display: flex
 	flex-direction: column
+	position: relative
+
+	&::after
+		$iconWidth: 30px
+		$iconHeight: 50px
+		content: ''
+		position: absolute
+		top: calc(50% - (#{$iconHeight} / 2))
+		right: -$iconWidth - (($converterGridGap - $iconWidth) / 2)
+		width: $iconWidth
+		height: $iconHeight
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.255 24.51L.788 6.18A2.647 2.647 0 010 4.284c0-.718.28-1.391.788-1.895L2.406.783A2.689 2.689 0 014.316 0c.723 0 1.4.278 1.909.783l21.988 21.825c.51.506.789 1.183.787 1.901a2.648 2.648 0 01-.787 1.904L6.245 48.217A2.689 2.689 0 014.336 49a2.69 2.69 0 01-1.91-.783L.81 46.61a2.67 2.67 0 010-3.79l18.446-18.31z' fill='%23484848'/%3E%3C/svg%3E%0A")
+		fill: red
 
 .wordEditor__toolbar
 	background-color: var(--converter-toolbar-background-color)
@@ -57,7 +66,8 @@
 	color: $color-dark
 
 .wordEditor__area
-	max-height: 500px
+	min-height: 400px
+	max-height: 700px
 	border-radius: 0 0 5px 5px
 	font-size: 15px
 
@@ -66,7 +76,9 @@
 
 .htmlEditor, .wordEditor__area
 	background-color: var(--converter-area-background-color)
-	padding: 15px
+	padding:
+		right: 15px
+		left: 15px
 
 .htmlEditor
 	border-radius: 5px
@@ -75,3 +87,6 @@
 	resize: none
 	cursor: text
 	display: block
+	padding:
+		top: 15px
+		bottom: 15px
