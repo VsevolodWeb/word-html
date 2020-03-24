@@ -1,10 +1,10 @@
-//import {Dispatch} from "redux";
+import {loadState, saveState} from "../utils/localstorage";
 
 const SWITCH_THEME = '/header/SWITCH_THEME';
 
 export enum ThemesList {
-	dark,
-	light
+	light,
+	dark
 }
 
 type InitialStateType = {
@@ -13,7 +13,7 @@ type InitialStateType = {
 }
 export const initialState: InitialStateType = {
 	url: "https://word-html.com",
-	theme: ThemesList.dark
+	theme: loadState() ? loadState().theme : ThemesList.light
 };
 
 type ActionsType = SetThemeType;
@@ -21,10 +21,16 @@ type ActionsType = SetThemeType;
 const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
 	switch (action.type) {
 		case SWITCH_THEME:
-			return {
+			const result = {
 				...state,
 				theme: action.theme || state.theme === ThemesList.light ? ThemesList.dark : ThemesList.light
 			};
+
+			saveState({
+				theme: result.theme
+			});
+
+			return result;
 
 		default:
 			return state;
