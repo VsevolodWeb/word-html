@@ -6,17 +6,19 @@ import App from "./App";
 
 export type MapStateToPropsType = {
 	theme: ThemesList
+	email: string
 }
 export type PropsType = MapStateToPropsType
 
 class AppContainer extends React.Component<PropsType> {
 	render() {
-		return <App theme={this.props.theme}/>
+		return <App theme={this.props.theme} email={this.props.email}/>
 	}
 }
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-	theme: state.app.theme
+	theme: state.app.theme,
+	email: state.app.email
 });
 
 export default connect(mapStateToProps)(AppContainer);

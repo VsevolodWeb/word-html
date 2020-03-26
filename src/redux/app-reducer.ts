@@ -9,17 +9,19 @@ export enum ThemesList {
 
 type InitialStateType = {
 	url: string
+	email: string
 	theme: ThemesList
 }
 export const initialState: InitialStateType = {
 	url: "https://word-html.com",
+	email: "info@word-html.com",
 	theme: loadState() ? loadState().theme : ThemesList.light
 };
 
 type ActionsType = SetThemeType;
 
 const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
-	switch (action.type) {
+	switch(action.type) {
 		case SWITCH_THEME:
 			const result = {
 				...state,
@@ -44,15 +46,5 @@ export type SetThemeType = {
 export const setTheme = (theme?: ThemesList): SetThemeType => {
 	return {type: SWITCH_THEME, theme}
 };
-
-/*export const setThemeThunkCreator = () => (dispatch: Dispatch<ActionsType>) => {
-	const a = 1;
-
-	if (a === 1) {
-		dispatch(setTheme(ThemesList.dark))
-	} else {
-		dispatch(setTheme(ThemesList.light))
-	}
-};*/
 
 export default appReducer;
