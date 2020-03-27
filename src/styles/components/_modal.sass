@@ -1,0 +1,25 @@
+.ReactModal
+	&__Body--open
+		overflow: hidden
+
+	&__Content
+		color: $color-dark
+
+		@include respond-above(md)
+			max-width: 80%
+
+		@include respond-below(md)
+			max-width: 95%
+
+		h2:first-child
+			margin-top: 0
+
+	&__Close
+		background-color: transparent
+		border-width: 0
+		padding: 10px
+		display: inline-flex
+		font-size: 20px
+		position: absolute
+		right: 10px
+		top: 10px
