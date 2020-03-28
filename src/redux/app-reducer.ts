@@ -13,7 +13,7 @@ type InitialStateType = {
 	theme: ThemesList
 }
 export const initialState: InitialStateType = {
-	url: "https://word-html.com",
+	url: "http://word-html.com",
 	email: "info@word-html.com",
 	theme: loadState() ? loadState().theme : ThemesList.light
 };
