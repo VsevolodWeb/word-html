@@ -3,6 +3,10 @@ import {connect} from "react-redux";
 import {ThemesList} from "./redux/app-reducer";
 import {AppStateType} from "./redux/store";
 import App from "./App";
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-162103612-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export type MapStateToPropsType = {
 	theme: ThemesList

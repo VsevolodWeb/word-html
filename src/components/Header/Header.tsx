@@ -18,7 +18,7 @@ import s from "./Header.module.sass";
 
 const Header = (props: PropsType) => {
 	const {url, theme, setTheme} = props;
-	const socialIconSize = 32;
+	const socialIconSize = 30;
 	const socialIconRound = true;
 
 	const switchModeOnChange = () => {
@@ -41,9 +41,9 @@ const Header = (props: PropsType) => {
 								width={60}
 								onColor="#379683" offColor="#484848"
 								checkedIcon={<span className={s.header__switchIcon} role="img"
-								                   aria-label="moon">🌙</span>} //where emoji
+								                   aria-label="moon">🌙</span>}
 								uncheckedIcon={<span className={s.header__switchIcon} role="img"
-								                     aria-label="sun">🌞</span>} //where emoji
+								                     aria-label="sun">🌞</span>}
 							/>
 						</div>
 						<div className={s.header__social}>
